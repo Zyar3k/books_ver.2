@@ -1,13 +1,20 @@
-import Test from "./components/Test/Test";
+import { Switch, Route } from "react-router";
+
+import BookList from "./components/BookList/BookList";
+import BookExtension from "./components/BookExtension/BookExtension";
 import { ContextProvider } from "./context/StoreContext/GlobalContext";
+import Header from "./components/Header/Header";
 
 const App = () => {
   return (
     <ContextProvider>
-      <div>
-        <h1>Start</h1>
-        <Test />
-      </div>
+      <Header />
+      <main className="container">
+        <Switch>
+          <Route path="/" component={BookList} exact />
+          <Route path="/book/:id" component={BookExtension} />
+        </Switch>
+      </main>
     </ContextProvider>
   );
 };
