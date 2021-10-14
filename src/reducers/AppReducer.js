@@ -56,6 +56,30 @@ export default function appReducer(state, action) {
             filtered: state.books.filter((book) => book.pozy === true),
             all: false,
           };
+        case "readed":
+          return {
+            ...state,
+            filtered: state.books.filter((book) => book.readed === true),
+            all: false,
+          };
+        case "unreaded":
+          return {
+            ...state,
+            filtered: state.books.filter((book) => book.readed === false),
+            all: false,
+          };
+        case "available":
+          return {
+            ...state,
+            filtered: state.books.filter((book) => book.available === true),
+            all: false,
+          };
+        case "unavailable":
+          return {
+            ...state,
+            filtered: state.books.filter((book) => book.available === false),
+            all: false,
+          };
       }
     case SORT_BY:
       const value = action.payload.name;

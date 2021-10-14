@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
+import Find from "../Find/Find";
 
 import { StyledHeader, SiteTitle, ListChosenWrapper } from "./Header.styled";
 
@@ -10,6 +11,7 @@ const Header = () => {
     <StyledHeader>
       <div className="container">
         <SiteTitle>
+          <Find />
           <h1>Books</h1>
         </SiteTitle>
         <ListChosenWrapper>
@@ -21,6 +23,7 @@ const Header = () => {
                 name="chosenList"
                 value="allBooks"
                 onChange={() => filterByList("allBooks")}
+                defaultChecked
               />
               Pełna lista
             </label>

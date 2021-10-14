@@ -12,7 +12,7 @@ const BookTile = ({ book }) => {
     if (book.emp) setStars((prev) => prev + 1);
     if (book.gan) setStars((prev) => prev + 1);
     if (book.pozy) setStars((prev) => prev + 1);
-  }, []);
+  }, [book.ama, book.bbc, book.emp, book.gan, book.pozy]);
 
   return (
     <BookTileStyled>

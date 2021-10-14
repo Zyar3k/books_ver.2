@@ -2,6 +2,8 @@ import React, { useContext, useEffect, useState } from "react";
 
 import { GlobalContext } from "../../context/GlobalContext";
 
+import { InputStyled } from "./Find.styled";
+
 const Find = () => {
   const { searchBook, clearFilter } = useContext(GlobalContext);
   const [searchValue, setSearchValue] = useState("");
@@ -16,13 +18,10 @@ const Find = () => {
     } else {
       clearFilter();
     }
-
   }, [searchValue]);
 
   return (
-    <div>
-      <input type="text" placeholder="Search..." onChange={handleChange} />
-    </div>
+    <InputStyled type="text" placeholder="Search..." onChange={handleChange} />
   );
 };
 

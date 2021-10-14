@@ -1,12 +1,26 @@
 * {
   box-sizing: border-box;
   margin: 0;
+  font-family: "Lato", sans-serif;
 }
+
+/* font-family: 'Lato', sans-serif;
+font-family: 'Oi', cursive; */
 
 body {
   background-color: #d3d6db;
+  color: #303841;
 }
+
 .container {
   max-width: 1260px;
   margin: 0 auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.abs {
+  position: relative;
 }

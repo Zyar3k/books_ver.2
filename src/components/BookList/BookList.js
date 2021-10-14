@@ -17,7 +17,7 @@ const BookList = () => {
     } else if (all !== true) {
       setDisplayData(filtered);
     }
-  }, [books, filtered, searched]);
+  }, [books, filtered, searched, all]);
 
   return (
     <BookListStyled>

@@ -5,18 +5,25 @@ export const StyledHeader = styled.header`
   color: #d3d6db;
   height: 100px;
   text-transform: uppercase;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 `;
 
 export const SiteTitle = styled.div`
   height: 50px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 
+  position: relative;
+
   h1 {
     margin: 0;
     padding: 0;
+    font-family: "Diplomata SC", cursive;
+    padding: 10px;
+    letter-spacing: 2px;
   }
 `;
 
