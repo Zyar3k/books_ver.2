@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 
-import { BookTileStyled } from "./BookTile.styled";
+import { BookTileStyled, TitleBar, DescriptionBar } from "./BookTile.styled";
 
-const BookTile = ({ book }) => {
+const BookTile = ({ book, isPageShowing }) => {
   const { name, lastName } = book.author;
   const [stars, setStars] = useState(0);
-
+  console.log(isPageShowing);
   useEffect(() => {
     if (book.ama) setStars((prev) => prev + 1);
     if (book.bbc) setStars((prev) => prev + 1);
@@ -16,12 +16,17 @@ const BookTile = ({ book }) => {
 
   return (
     <BookTileStyled>
-      <h3>{book.title}</h3>
-      <em>
-        {name} {lastName}
-      </em>
-      <p>{book.page}</p>
-      {/* <b> Stars: {stars}</b> */}
+      <TitleBar>
+        <h3>{book.title}</h3>
+        <p> Stars: {stars}</p>
+        <button>Readed</button>
+      </TitleBar>
+      <DescriptionBar>
+        <em>
+          {name} {lastName}
+        </em>
+        {isPageShowing && <p>Liczba stron: {book.page}</p>}
+      </DescriptionBar>
     </BookTileStyled>
   );
 };

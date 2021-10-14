@@ -9,48 +9,59 @@ import {
   ToggleButton,
 } from "./SortBar.styled";
 
-const Sidebar = () => {
+const Sidebar = ({ setIsPageShowing, isPageShowing }) => {
   const { sortBy, filterByList } = useContext(GlobalContext);
   const [openSidebar, setOpenSidebar] = useState(false);
 
   return (
     <StyledSortBar>
+      {/* <ToggleButton
+        onClick={() => {
+          setIsPageShowing(!isPageShowing);
+          setOpenSidebar(!openSidebar);
+        }}
+      >
+        <i
+          className={!openSidebar ? "fas fa-chevron-down" : "fas fa-chevron-up"}
+          aria-hidden="true"
+        />
+      </ToggleButton> */}
       {openSidebar ? (
         <SortWrapper>
           <SortItem>
             <button onClick={() => sortBy("nameUp")}>
-              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
-            </button>
-            <h4>Po imieniu</h4>
-            <button onClick={() => sortBy("nameDown")}>
               <span
                 className="fa fa-sort-amount-desc"
                 aria-hidden="true"
               ></span>
+            </button>
+            <h4>Po imieniu</h4>
+            <button onClick={() => sortBy("nameDown")}>
+              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
           </SortItem>
           <SortItem>
             <button onClick={() => sortBy("lastNameUp")}>
-              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
-            </button>
-            <h4>Po nazwisku</h4>
-            <button onClick={() => sortBy("lastNameDown")}>
               <span
                 className="fa fa-sort-amount-desc"
                 aria-hidden="true"
               ></span>
+            </button>
+            <h4>Po nazwisku</h4>
+            <button onClick={() => sortBy("lastNameDown")}>
+              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
           </SortItem>
           <SortItem>
             <button onClick={() => sortBy("pageUp")}>
-              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
-            </button>
-            <h4>Po ilości stron</h4>
-            <button onClick={() => sortBy("pageDown")}>
               <span
                 className="fa fa-sort-amount-desc"
                 aria-hidden="true"
               ></span>
+            </button>
+            <h4>Po ilości stron</h4>
+            <button onClick={() => sortBy("pageDown")}>
+              <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
           </SortItem>
 
@@ -74,7 +85,12 @@ const Sidebar = () => {
           </SortItem>
         </SortWrapper>
       ) : null}
-      <ToggleButton onClick={() => setOpenSidebar(!openSidebar)}>
+      <ToggleButton
+        onClick={() => {
+          setIsPageShowing(!isPageShowing);
+          setOpenSidebar(!openSidebar);
+        }}
+      >
         <i
           className={!openSidebar ? "fas fa-chevron-down" : "fas fa-chevron-up"}
           aria-hidden="true"

@@ -3,9 +3,9 @@ import { GlobalContext } from "../../context/GlobalContext";
 
 import { BookListStyled } from "./BookList.styled";
 
-const BookTile = lazy(()=> import("./BookTile"));
+const BookTile = lazy(() => import("./BookTile"));
 
-const BookList = () => {
+const BookList = ({ isPageShowing }) => {
   const { books, filtered, all, searched } = useContext(GlobalContext);
   const [displayData, setDisplayData] = useState(books);
 
@@ -23,7 +23,7 @@ const BookList = () => {
     <Suspense fallback="Loading...">
       <BookListStyled>
         {displayData.map((book) => (
-          <BookTile key={book._id} book={book} />
+          <BookTile key={book._id} book={book} isPageShowing={isPageShowing} />
         ))}
       </BookListStyled>
     </Suspense>

@@ -84,6 +84,7 @@ export default function appReducer(state, action) {
     case SORT_BY:
       const value = action.payload.name;
       let sortedList;
+
       if (state.all) {
         sortedList = state.books;
       } else {

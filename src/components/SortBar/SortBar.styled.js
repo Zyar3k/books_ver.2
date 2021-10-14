@@ -3,8 +3,9 @@ import styled from "styled-components";
 export const StyledSortBar = styled.div`
   position: sticky;
   top: 100px;
-  background: #d3d6db;
+  background: transparent;
   color: #d3d6db;
+  z-index: 10;
 `;
 
 export const SortWrapper = styled.div`
@@ -31,7 +32,6 @@ export const SortItem = styled.div`
 
   button {
     border: none;
-    /* border: 1px solid black; */
     background: none;
     color: #d3d6db;
     font-size: 18px;
@@ -42,14 +42,16 @@ export const SortItem = styled.div`
 export const ToggleButton = styled.button`
   border: none;
   height: 20px;
+  width: 40px;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #d3d6db;
-  width: 100%;
-
-  /* width: 200px;
-  display: flex;
-  justify-content: space-around; */
+  background: transparent;
+  /* width: 100%; */
+  margin: 0 auto;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  background: #be3144;
 `;

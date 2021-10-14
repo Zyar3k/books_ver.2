@@ -21,7 +21,11 @@ const Find = () => {
   }, [searchValue]);
 
   return (
-    <InputStyled type="text" placeholder="Search..." onChange={handleChange} />
+    <InputStyled
+      type="text"
+      placeholder="Wyszukaj..."
+      onChange={handleChange}
+    />
   );
 };
 
