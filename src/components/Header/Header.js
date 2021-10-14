@@ -1,6 +1,11 @@
+import { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
+
 import { StyledHeader, SiteTitle, ListChosenWrapper } from "./Header.styled";
 
 const Header = () => {
+  const { state, filterByList } = useContext(GlobalContext);
+
   return (
     <StyledHeader>
       <div className="container">
@@ -15,6 +20,7 @@ const Header = () => {
                 id="allBooks"
                 name="chosenList"
                 value="allBooks"
+                onChange={() => filterByList("allBooks")}
               />
               Pełna lista
             </label>
@@ -26,19 +32,32 @@ const Header = () => {
                 id="amazon"
                 name="chosenList"
                 value="amazon"
+                onChange={() => filterByList("amazon")}
               />
               Amazon
             </label>
           </div>
           <div>
             <label htmlFor="bbc">
-              <input type="radio" id="bbc" name="chosenList" value="bbc" />
+              <input
+                type="radio"
+                id="bbc"
+                name="chosenList"
+                value="bbc"
+                onChange={() => filterByList("bbc")}
+              />
               BBC
             </label>
           </div>
           <div>
             <label htmlFor="empik">
-              <input type="radio" id="empik" name="chosenList" value="empik" />
+              <input
+                type="radio"
+                id="empik"
+                name="chosenList"
+                value="empik"
+                onChange={() => filterByList("empik")}
+              />
               Empik
             </label>
           </div>
@@ -49,6 +68,7 @@ const Header = () => {
                 id="gandalf"
                 name="chosenList"
                 value="gandalf"
+                onChange={() => filterByList("gandalf")}
               />
               Gandalf
             </label>
@@ -60,6 +80,7 @@ const Header = () => {
                 id="pozycje"
                 name="chosenList"
                 value="pozycje"
+                onChange={() => filterByList("pozycje")}
               />
               Pozycje
             </label>

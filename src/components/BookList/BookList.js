@@ -1,16 +1,28 @@
 import { useContext, useEffect, useState } from "react";
+import { GlobalContext } from "../../context/GlobalContext";
 
-import { GlobalContext } from "../../context/StoreContext/GlobalContext";
+import { BookListStyled } from "./BookList.styled";
+
+import BookTile from "./BookTile";
 
 const BookList = () => {
-  const { books } = useContext(GlobalContext);
-  console.log(books);
+  const { books, filtered, all } = useContext(GlobalContext);
+  const [displayData, setDisplayData] = useState(books);
+
+  useEffect(() => {
+    if (all === true) {
+      setDisplayData(books);
+    } else {
+      setDisplayData(filtered);
+    }
+  }, [books, filtered]);
+
   return (
-    <div>
-      {books.map((book) => (
-        <p>{book.title}</p>
+    <BookListStyled>
+      {displayData.map((book) => (
+        <BookTile key={book._id} book={book} />
       ))}
-    </div>
+    </BookListStyled>
   );
 };
 

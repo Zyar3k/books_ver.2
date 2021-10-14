@@ -2,7 +2,7 @@ import { Switch, Route } from "react-router";
 
 import BookList from "./components/BookList/BookList";
 import BookExtension from "./components/BookExtension/BookExtension";
-import { ContextProvider } from "./context/StoreContext/GlobalContext";
+import { ContextProvider } from "./context/GlobalContext";
 import Header from "./components/Header/Header";
 
 const App = () => {
