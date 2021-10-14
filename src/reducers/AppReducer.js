@@ -111,6 +111,7 @@ export default function appReducer(state, action) {
     case CLEAR_FILTER:
       return {
         ...state,
+        searched: null,
       };
 
     default:

@@ -19,6 +19,7 @@ const initialState = {
   all: true,
   bookStars: 0,
   searched: null,
+
 };
 
 export const GlobalContext = createContext(initialState);
@@ -65,6 +66,7 @@ export const ContextProvider = ({ children }) => {
         all: state.all,
         bookStars: state.bookStars,
         searched: state.searched,
+
       }}
     >
       {children}

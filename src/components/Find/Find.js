@@ -16,6 +16,7 @@ const Find = () => {
     } else {
       clearFilter();
     }
+
   }, [searchValue]);
 
   return (

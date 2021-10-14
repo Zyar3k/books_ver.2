@@ -4,7 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { StyledHeader, SiteTitle, ListChosenWrapper } from "./Header.styled";
 
 const Header = () => {
-  const { state, filterByList } = useContext(GlobalContext);
+  const { filterByList } = useContext(GlobalContext);
 
   return (
     <StyledHeader>
