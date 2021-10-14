@@ -7,6 +7,8 @@ import appReducer, {
   FETCH_SUCCESS,
   RENDER_LIST,
   SORT_BY,
+  SEARCH_BOOK,
+  CLEAR_FILTER,
 } from "../reducers/AppReducer";
 
 const initialState = {
@@ -16,13 +18,13 @@ const initialState = {
   filtered: null,
   all: true,
   bookStars: 0,
+  searched: null,
 };
 
 export const GlobalContext = createContext(initialState);
 
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(appReducer, initialState);
-  // console.log(state);
 
   useEffect(() => {
     axios
@@ -43,6 +45,13 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: SORT_BY, payload: { name } });
   };
 
+  const searchBook = (id) => {
+    dispatch({ type: SEARCH_BOOK, payload: id });
+  };
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -51,8 +60,11 @@ export const ContextProvider = ({ children }) => {
         filtered: state.filtered,
         filterByList,
         sortBy,
+        searchBook,
+        clearFilter,
         all: state.all,
         bookStars: state.bookStars,
+        searched: state.searched,
       }}
     >
       {children}

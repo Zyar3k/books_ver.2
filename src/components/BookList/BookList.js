@@ -6,16 +6,18 @@ import { BookListStyled } from "./BookList.styled";
 import BookTile from "./BookTile";
 
 const BookList = () => {
-  const { books, filtered, all } = useContext(GlobalContext);
+  const { books, filtered, all, searched } = useContext(GlobalContext);
   const [displayData, setDisplayData] = useState(books);
 
   useEffect(() => {
-    if (all === true) {
+    if (searched) {
+      setDisplayData(searched);
+    } else if (all === true) {
       setDisplayData(books);
-    } else {
+    } else if (all !== true) {
       setDisplayData(filtered);
     }
-  }, [books, filtered]);
+  }, [books, filtered, searched]);
 
   return (
     <BookListStyled>

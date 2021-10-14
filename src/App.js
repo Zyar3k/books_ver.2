@@ -5,12 +5,14 @@ import BookExtension from "./components/BookExtension/BookExtension";
 import { ContextProvider } from "./context/GlobalContext";
 import Header from "./components/Header/Header";
 import SortList from "./components/SortList/SortList";
+import Find from "./components/Find/Find";
 
 const App = () => {
   return (
     <ContextProvider>
       <Header />
       <SortList />
+      <Find />
       <main className="container">
         <Switch>
           <Route path="/" component={BookList} exact />
