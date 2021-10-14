@@ -6,6 +6,7 @@ import appReducer, {
   FETCH_ERROR,
   FETCH_SUCCESS,
   RENDER_LIST,
+  SORT_BY,
 } from "../reducers/AppReducer";
 
 const initialState = {
@@ -14,6 +15,7 @@ const initialState = {
   books: [],
   filtered: null,
   all: true,
+  bookStars: 0,
 };
 
 export const GlobalContext = createContext(initialState);
@@ -37,6 +39,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: RENDER_LIST, payload: { name } });
   };
 
+  const sortBy = (name) => {
+    dispatch({ type: SORT_BY, payload: { name } });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -44,7 +50,9 @@ export const ContextProvider = ({ children }) => {
         books: state.books,
         filtered: state.filtered,
         filterByList,
+        sortBy,
         all: state.all,
+        bookStars: state.bookStars,
       }}
     >
       {children}

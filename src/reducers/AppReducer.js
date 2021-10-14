@@ -1,6 +1,7 @@
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_ERROR = "FETCH_ERROR";
 export const RENDER_LIST = "RENDER_LIST";
+export const SORT_BY = "SORT_BY";
 
 export default function appReducer(state, action) {
   switch (action.type) {
@@ -54,6 +55,40 @@ export default function appReducer(state, action) {
             all: false,
           };
       }
+    case SORT_BY:
+      const value = action.payload.name;
+      let sortedList;
+      if (state.all) {
+        sortedList = state.books;
+      } else {
+        sortedList = state.filtered;
+      }
+      let sorted;
+      if (value === "nameDown") {
+        sorted = sortedList.sort((a, b) =>
+          a.author.name < b.author.name ? "1" : "-1"
+        );
+      } else if (value === "nameUp") {
+        sorted = sortedList.sort((a, b) =>
+          a.author.name > b.author.name ? "1" : "-1"
+        );
+      } else if (value === "lastNameDown") {
+        sorted = sortedList.sort((a, b) =>
+          a.author.lastName < b.author.lastName ? "1" : "-1"
+        );
+      } else if (value === "lastNameUp") {
+        sorted = sortedList.sort((a, b) =>
+          a.author.lastName > b.author.lastName ? "1" : "-1"
+        );
+      } else if (value === "pageDown") {
+        sorted = sortedList.sort((a, b) => (a.page < b.page ? "1" : "-1"));
+      } else if (value === "pageUp") {
+        sorted = sortedList.sort((a, b) => (a.page > b.page ? "1" : "-1"));
+      }
+
+      return {
+        ...state,
+      };
 
     default:
       return state;
