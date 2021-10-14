@@ -1,9 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, lazy, Suspense } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 
 import { BookListStyled } from "./BookList.styled";
 
-import BookTile from "./BookTile";
+const BookTile = lazy(()=> import("./BookTile"));
 
 const BookList = () => {
   const { books, filtered, all, searched } = useContext(GlobalContext);
@@ -20,11 +20,13 @@ const BookList = () => {
   }, [books, filtered, searched, all]);
 
   return (
-    <BookListStyled>
-      {displayData.map((book) => (
-        <BookTile key={book._id} book={book} />
-      ))}
-    </BookListStyled>
+    <Suspense fallback="Loading...">
+      <BookListStyled>
+        {displayData.map((book) => (
+          <BookTile key={book._id} book={book} />
+        ))}
+      </BookListStyled>
+    </Suspense>
   );
 };
 

@@ -3,32 +3,25 @@ import { useContext } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 
 import {
-  StyledSidebar,
-  ToggleButton,
+  StyledSortBar,
   SortWrapper,
   SortItem,
-} from "./Sidebar.styled";
+  ToggleButton,
+} from "./SortBar.styled";
 
 const Sidebar = () => {
   const { sortBy, filterByList } = useContext(GlobalContext);
   const [openSidebar, setOpenSidebar] = useState(false);
 
   return (
-    <StyledSidebar className="sidebar">
-      <ToggleButton onClick={() => setOpenSidebar(!openSidebar)}>
-        <i
-          className={openSidebar ? "fa fa-compress" : "fa fa-expand"}
-          aria-hidden="true"
-        />
-      </ToggleButton>
+    <StyledSortBar>
       {openSidebar ? (
         <SortWrapper>
-          <h3>Sortowanie wg:</h3>
           <SortItem>
             <button onClick={() => sortBy("nameUp")}>
               <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
-            <h4>Imienia</h4>
+            <h4>Po imieniu</h4>
             <button onClick={() => sortBy("nameDown")}>
               <span
                 className="fa fa-sort-amount-desc"
@@ -40,7 +33,7 @@ const Sidebar = () => {
             <button onClick={() => sortBy("lastNameUp")}>
               <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
-            <h4>Nazwiska</h4>
+            <h4>Po nazwisku</h4>
             <button onClick={() => sortBy("lastNameDown")}>
               <span
                 className="fa fa-sort-amount-desc"
@@ -52,7 +45,7 @@ const Sidebar = () => {
             <button onClick={() => sortBy("pageUp")}>
               <span className="fa fa-sort-amount-asc" aria-hidden="true"></span>
             </button>
-            <h4>Ilości stron</h4>
+            <h4>Po ilości stron</h4>
             <button onClick={() => sortBy("pageDown")}>
               <span
                 className="fa fa-sort-amount-desc"
@@ -60,7 +53,7 @@ const Sidebar = () => {
               ></span>
             </button>
           </SortItem>
-          <h3>Dodatkowe</h3>
+
           <SortItem>
             <button onClick={() => filterByList("readed")}>
               <span className="fa fa-check-square-o" aria-hidden="true"></span>
@@ -81,7 +74,13 @@ const Sidebar = () => {
           </SortItem>
         </SortWrapper>
       ) : null}
-    </StyledSidebar>
+      <ToggleButton onClick={() => setOpenSidebar(!openSidebar)}>
+        <i
+          className={!openSidebar ? "fas fa-chevron-down" : "fas fa-chevron-up"}
+          aria-hidden="true"
+        />
+      </ToggleButton>
+    </StyledSortBar>
   );
 };
 

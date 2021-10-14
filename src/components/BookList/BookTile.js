@@ -17,11 +17,11 @@ const BookTile = ({ book }) => {
   return (
     <BookTileStyled>
       <h3>{book.title}</h3>
-      <p>{book.page}</p>
       <em>
         {name} {lastName}
       </em>
-      <b> Stars: {stars}</b>
+      <p>{book.page}</p>
+      {/* <b> Stars: {stars}</b> */}
     </BookTileStyled>
   );
 };
