@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { BookTileStyled, TitleBar, DescriptionBar } from "./BookTile.styled";
 
@@ -16,17 +17,19 @@ const BookTile = ({ book, isPageShowing }) => {
 
   return (
     <BookTileStyled>
-      <TitleBar>
-        <h3>{book.title}</h3>
-        <p> Stars: {stars}</p>
-        <button>Readed</button>
-      </TitleBar>
-      <DescriptionBar>
-        <em>
-          {name} {lastName}
-        </em>
-        {isPageShowing && <p>Liczba stron: {book.page}</p>}
-      </DescriptionBar>
+      <Link to={`book/${book._id}`}>
+        <TitleBar>
+          <h3>{book.title}</h3>
+          <p> Stars: {stars}</p>
+          <button>Readed</button>
+        </TitleBar>
+        <DescriptionBar>
+          <em>
+            {name} {lastName}
+          </em>
+          {isPageShowing && <p>Liczba stron: {book.page}</p>}
+        </DescriptionBar>
+      </Link>
     </BookTileStyled>
   );
 };

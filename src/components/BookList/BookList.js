@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState, lazy, Suspense } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 
 import { BookListStyled } from "./BookList.styled";
 
@@ -25,6 +26,7 @@ const BookList = ({ isPageShowing }) => {
         {displayData.map((book) => (
           <BookTile key={book._id} book={book} isPageShowing={isPageShowing} />
         ))}
+        <ScrollToTop />
       </BookListStyled>
     </Suspense>
   );

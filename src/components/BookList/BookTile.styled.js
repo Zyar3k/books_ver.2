@@ -5,6 +5,15 @@ export const BookTileStyled = styled.div`
   margin: 10px;
   border-radius: 12px;
   box-shadow: 1px 1px 10px #a9abaf;
+
+  a {
+    text-decoration: none;
+    color: #303841;
+  }
+
+  &:hover {
+    box-shadow: 1px 1px 4px #a9abaf;
+  }
 `;
 
 export const TitleBar = styled.div`
