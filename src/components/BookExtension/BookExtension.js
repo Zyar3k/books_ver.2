@@ -1,16 +1,24 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router";
 import BookContent from "../BookContent/BookContent";
 
-const BookExtension = () => {
+const BookExtension = ({ setIsHome }) => {
   const { books } = useContext(GlobalContext);
-
+  const params = useParams();
   const history = useHistory();
-  const currBookId = history.location.pathname.slice(6);
+  const path = history.location.pathname;
+
+  useEffect(() => {
+    if (path !== "/") {
+      setIsHome(false);
+    } else {
+      setIsHome(true);
+    }
+  }, [path, setIsHome]);
 
   const bookElement = books
-    .filter((book) => currBookId.includes(book._id))
+    .filter((book) => params.id.includes(book._id))
     .map((book) => <BookContent key={book._id} book={book} />);
 
   return <>{bookElement}</>;

@@ -47,6 +47,7 @@ export const ContextProvider = ({ children }) => {
   const searchBook = (id) => {
     dispatch({ type: SEARCH_BOOK, payload: id });
   };
+
   const clearFilter = () => {
     dispatch({ type: CLEAR_FILTER });
   };

@@ -47,11 +47,10 @@ export const ToggleButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #d3d6db;
-  background: transparent;
-  /* width: 100%; */
   margin: 0 auto;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
   background: #be3144;
+  color: #d3d6db;
+  box-shadow: 0px 4px 10px #a9abaf;
 `;

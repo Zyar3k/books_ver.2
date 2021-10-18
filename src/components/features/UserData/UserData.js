@@ -10,13 +10,19 @@ const UserData = ({ book }) => {
 
   const history = useHistory();
   const backToList = () => {
-    history.goBack();
+    history.push("/");
   };
   return (
     <UserDataStyled>
       <div className="userActivity">
         <div>{readed && <img src={kindle} alt="kindle-reader" />}</div>
-        <div>{available ? <img src={readedImg} alt='cartoon character with a book' /> : "False"}</div>
+        <div>
+          {available ? (
+            <img src={readedImg} alt="cartoon character with a book" />
+          ) : (
+            "False"
+          )}
+        </div>
       </div>
       <div className="buttonWrapper">
         <button onClick={backToList}>Wróć do listy</button>

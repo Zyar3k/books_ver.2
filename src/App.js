@@ -6,27 +6,28 @@ import BookExtension from "./components/BookExtension/BookExtension";
 import Header from "./components/Header/Header";
 import SortBar from "./components/SortBar/SortBar";
 
-import { ContextProvider } from "./context/GlobalContext";
-
 const App = () => {
   const [isPageShowing, setIsPageShowing] = useState(false);
+  const [isHome, setIsHome] = useState(true);
 
   return (
-    <ContextProvider>
-      <Header />
-      <main className="container ">
-        <SortBar
-          setIsPageShowing={setIsPageShowing}
-          isPageShowing={isPageShowing}
-        />
+    <>
+      <Header isHome={isHome} />
+      <main className="container">
         <Switch>
           <Route path="/" exact>
-            <BookList isPageShowing={isPageShowing} />
+            <SortBar
+              setIsPageShowing={setIsPageShowing}
+              isPageShowing={isPageShowing}
+            />
+            <BookList setIsHome={setIsHome} isPageShowing={isPageShowing} />
           </Route>
-          <Route path="/book/:id" component={BookExtension} />
+          <Route path="/book/:id" exact>
+            <BookExtension setIsHome={setIsHome} />
+          </Route>
         </Switch>
       </main>
-    </ContextProvider>
+    </>
   );
 };
 

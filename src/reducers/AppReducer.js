@@ -5,6 +5,7 @@ export const SORT_BY = "SORT_BY";
 export const SEARCH_BOOK = "SEARCH_BOOK";
 export const CLEAR_FILTER = "CLEAR_FILTER";
 
+
 export default function appReducer(state, action) {
   switch (action.type) {
     case FETCH_SUCCESS:
@@ -140,6 +141,7 @@ export default function appReducer(state, action) {
         ...state,
         searched: null,
       };
+    
 
     default:
       return state;

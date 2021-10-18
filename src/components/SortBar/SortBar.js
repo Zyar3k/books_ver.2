@@ -15,17 +15,6 @@ const Sidebar = ({ setIsPageShowing, isPageShowing }) => {
 
   return (
     <StyledSortBar>
-      {/* <ToggleButton
-        onClick={() => {
-          setIsPageShowing(!isPageShowing);
-          setOpenSidebar(!openSidebar);
-        }}
-      >
-        <i
-          className={!openSidebar ? "fas fa-chevron-down" : "fas fa-chevron-up"}
-          aria-hidden="true"
-        />
-      </ToggleButton> */}
       {openSidebar ? (
         <SortWrapper>
           <SortItem>

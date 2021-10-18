@@ -8,6 +8,7 @@ export const StyledHeader = styled.header`
   position: sticky;
   top: 0;
   z-index: 10;
+  box-shadow: 1px 1px 10px #a9abaf;
 `;
 
 export const SiteTitle = styled.div`

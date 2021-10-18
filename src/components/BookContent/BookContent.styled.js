@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const BookContentStyled = styled.div`
   min-height: 80vh;
-  margin-top: 10px;
+  margin: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

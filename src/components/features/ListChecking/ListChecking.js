@@ -15,6 +15,7 @@ const ListChecking = ({ book }) => {
 
   return (
     <ListCheckingStyled>
+      <h3>Na listach:</h3>
       {array.map((item, index) =>
         item.bool ? <span key={index}>{item.name}</span> : null
       )}

@@ -4,8 +4,47 @@ import Find from "../Find/Find";
 
 import { StyledHeader, SiteTitle, ListChosenWrapper } from "./Header.styled";
 
-const Header = () => {
+const Header = ({ isHome }) => {
   const { filterByList } = useContext(GlobalContext);
+
+  const headerLists = [
+    {
+      id: "allBooks",
+      name: "Pełna lista",
+      defaultValue: true,
+      func: () => filterByList("allBooks"),
+    },
+    {
+      id: "amazon",
+      name: "Amazon",
+      defaultValue: false,
+      func: () => filterByList("amazon"),
+    },
+    {
+      id: "bbc",
+      name: "BBC",
+      defaultValue: false,
+      func: () => filterByList("bbc"),
+    },
+    {
+      id: "empik",
+      name: "Empik",
+      defaultValue: false,
+      func: () => filterByList("empik"),
+    },
+    {
+      id: "gandalf",
+      name: "Gandalf",
+      defaultValue: false,
+      func: () => filterByList("gandalf"),
+    },
+    {
+      id: "pozycje",
+      name: "Pozycje",
+      defaultValue: false,
+      func: () => filterByList("pozycje"),
+    },
+  ];
 
   return (
     <StyledHeader>
@@ -14,81 +53,25 @@ const Header = () => {
           <Find />
           <h1>Books</h1>
         </SiteTitle>
-        <ListChosenWrapper>
-          <div>
-            <label htmlFor="allBooks">
-              <input
-                type="radio"
-                id="allBooks"
-                name="chosenList"
-                value="allBooks"
-                onChange={() => filterByList("allBooks")}
-                defaultChecked
-              />
-              Pełna lista
-            </label>
-          </div>
-          <div>
-            <label htmlFor="amazon">
-              <input
-                type="radio"
-                id="amazon"
-                name="chosenList"
-                value="amazon"
-                onChange={() => filterByList("amazon")}
-              />
-              Amazon
-            </label>
-          </div>
-          <div>
-            <label htmlFor="bbc">
-              <input
-                type="radio"
-                id="bbc"
-                name="chosenList"
-                value="bbc"
-                onChange={() => filterByList("bbc")}
-              />
-              BBC
-            </label>
-          </div>
-          <div>
-            <label htmlFor="empik">
-              <input
-                type="radio"
-                id="empik"
-                name="chosenList"
-                value="empik"
-                onChange={() => filterByList("empik")}
-              />
-              Empik
-            </label>
-          </div>
-          <div>
-            <label htmlFor="gandalf">
-              <input
-                type="radio"
-                id="gandalf"
-                name="chosenList"
-                value="gandalf"
-                onChange={() => filterByList("gandalf")}
-              />
-              Gandalf
-            </label>
-          </div>
-          <div>
-            <label htmlFor="pozycje">
-              <input
-                type="radio"
-                id="pozycje"
-                name="chosenList"
-                value="pozycje"
-                onChange={() => filterByList("pozycje")}
-              />
-              Pozycje
-            </label>
-          </div>
-        </ListChosenWrapper>
+        {isHome ? (
+          <ListChosenWrapper>
+            {headerLists.map((list, index) => (
+              <div key={index}>
+                <label htmlFor={list.id}>
+                  <input
+                    type="radio"
+                    id={list.id}
+                    name="chosenList"
+                    value={list.id}
+                    onChange={list.func}
+                    defaultChecked={list.defaultValue}
+                  />
+                  {list.name}
+                </label>
+              </div>
+            ))}
+          </ListChosenWrapper>
+        ) : null}
       </div>
     </StyledHeader>
   );
