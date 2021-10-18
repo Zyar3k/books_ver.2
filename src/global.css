@@ -7,6 +7,9 @@
 body {
   background-color: #d3d6db;
   color: #303841;
+
+  overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 .container {

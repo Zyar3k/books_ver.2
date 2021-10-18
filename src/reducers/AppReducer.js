@@ -80,6 +80,8 @@ export default function appReducer(state, action) {
             filtered: state.books.filter((book) => book.available === false),
             all: false,
           };
+        default:
+          return state;
       }
     case SORT_BY:
       const value = action.payload.name;

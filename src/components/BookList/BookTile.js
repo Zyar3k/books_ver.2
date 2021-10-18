@@ -6,7 +6,7 @@ import { BookTileStyled, TitleBar, DescriptionBar } from "./BookTile.styled";
 const BookTile = ({ book, isPageShowing }) => {
   const { name, lastName } = book.author;
   const [stars, setStars] = useState(0);
-  console.log(isPageShowing);
+
   useEffect(() => {
     if (book.ama) setStars((prev) => prev + 1);
     if (book.bbc) setStars((prev) => prev + 1);
@@ -17,7 +17,7 @@ const BookTile = ({ book, isPageShowing }) => {
 
   return (
     <BookTileStyled>
-      <Link to={`book/${book._id}`}>
+      <Link book={book} to={`book/${book._id}`}>
         <TitleBar>
           <h3>{book.title}</h3>
           <p> Stars: {stars}</p>
