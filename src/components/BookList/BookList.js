@@ -3,6 +3,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import { useHistory } from "react-router-dom";
 
+
 import { BookListStyled } from "./BookList.styled";
 
 const BookTile = lazy(() => import("./BookTile"));
@@ -36,7 +37,8 @@ const BookList = ({ isPageShowing, setIsHome }) => {
         {displayData.map((book) => (
           <BookTile key={book._id} book={book} isPageShowing={isPageShowing} />
         ))}
-        <ScrollToTop />
+     
+        <ScrollToTop/>
       </BookListStyled>
     </Suspense>
   );

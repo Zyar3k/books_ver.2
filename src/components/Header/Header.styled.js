@@ -19,12 +19,16 @@ export const SiteTitle = styled.div`
 
   position: relative;
 
-  h1 {
-    margin: 0;
-    padding: 0;
-    font-family: "Diplomata SC", cursive;
-    padding: 10px;
-    letter-spacing: 2px;
+  a {
+    text-decoration: none;
+    h1 {
+      margin: 0;
+      padding: 0;
+      font-family: "Diplomata SC", cursive;
+      padding: 10px;
+      letter-spacing: 2px;
+      color: #d3d6db;
+    }
   }
 `;
 

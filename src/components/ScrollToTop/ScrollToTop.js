@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
-
+import ReactTooltip from "react-tooltip";
 import { ScrollToTopStyled } from "./ScrollToTop.styled";
 
 const ScrollToTop = () => {
@@ -21,8 +21,9 @@ const ScrollToTop = () => {
     return false;
   }
   return (
-    <ScrollToTopStyled onClick={scrollToTop}>
+    <ScrollToTopStyled onClick={scrollToTop} data-tip="Przewiń do góry">
       <i className="fas fa-chevron-up"></i>
+      <ReactTooltip />
     </ScrollToTopStyled>
   );
 };

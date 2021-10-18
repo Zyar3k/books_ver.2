@@ -3,6 +3,7 @@ import StarRanking from "../features/StarRanking/StarRanking";
 import ListChecking from "../features/ListChecking/ListChecking";
 import UserData from "../features/UserData/UserData";
 import PageSection from "../features/PageSection/PageSection";
+import ReactTooltip from "react-tooltip";
 
 import logoLC from "../../images/lc-logo.png";
 
@@ -29,12 +30,17 @@ const BookContent = ({ book }) => {
       </div>
       <div className="contentWrapper">
         <a href={link} target="_blank" rel="noreferrer">
-          <img src={logoLC} alt="lubimy-czytac_logo" />
+          <img
+            data-tip="Opis pozycji - LubimyCzytać.pl"
+            src={logoLC}
+            alt="lubimy-czytac_logo"
+          />
         </a>
         <PageSection page={page} />
       </div>
       <ListChecking book={book} />
       <UserData book={book} />
+      <ReactTooltip />
     </BookContentStyled>
   );
 };

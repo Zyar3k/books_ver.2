@@ -1,5 +1,5 @@
 import { useHistory } from "react-router-dom";
-
+import ReactTooltip from "react-tooltip";
 import { UserDataStyled } from "./UserData.styled";
 
 import kindle from "../../../images/wood_hand_kindle_en.png";
@@ -15,10 +15,22 @@ const UserData = ({ book }) => {
   return (
     <UserDataStyled>
       <div className="userActivity">
-        <div>{readed && <img src={kindle} alt="kindle-reader" />}</div>
+        <div>
+          {readed && (
+            <img
+              data-tip="Posiadana pozycja"
+              src={kindle}
+              alt="kindle-reader"
+            />
+          )}
+        </div>
         <div>
           {available ? (
-            <img src={readedImg} alt="cartoon character with a book" />
+            <img
+              data-tip="Pozycja przeczytana"
+              src={readedImg}
+              alt="cartoon character with a book"
+            />
           ) : (
             "False"
           )}
@@ -27,6 +39,7 @@ const UserData = ({ book }) => {
       <div className="buttonWrapper">
         <button onClick={backToList}>Wróć do listy</button>
       </div>
+      <ReactTooltip />
     </UserDataStyled>
   );
 };

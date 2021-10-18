@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import Find from "../Find/Find";
 
@@ -51,7 +52,9 @@ const Header = ({ isHome }) => {
       <div className="container">
         <SiteTitle>
           <Find />
-          <h1>Books</h1>
+          <Link to="/">
+            <h1>Books</h1>
+          </Link>
         </SiteTitle>
         {isHome ? (
           <ListChosenWrapper>

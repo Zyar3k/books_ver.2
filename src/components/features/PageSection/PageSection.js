@@ -1,5 +1,5 @@
 import React from "react";
-
+import ReactTooltip from "react-tooltip";
 import { PageSectionStyled } from "./PageSection.styled";
 
 function timeCounter(params) {
@@ -14,7 +14,10 @@ const PageSection = ({ page }) => {
   return (
     <PageSectionStyled>
       <h3>Ilość stron: {page}</h3>
-      <h3>Czas czytania: {timeCounter(page)}</h3>
+      <h3 data-tip="Szacowany przelicznik: 200 słów na minutę, czyli 1 strona na 1 minutę czytania.">
+        Czas czytania: {timeCounter(page)}
+      </h3>
+      <ReactTooltip />
     </PageSectionStyled>
   );
 };
