@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import Find from "../Find/Find";
@@ -7,6 +7,7 @@ import { StyledHeader, SiteTitle, ListChosenWrapper } from "./Header.styled";
 
 const Header = ({ isHome }) => {
   const { filterByList } = useContext(GlobalContext);
+  const [isOpen, setIsOpen] = useState(false);
 
   const headerLists = [
     {
@@ -47,6 +48,8 @@ const Header = ({ isHome }) => {
     },
   ];
 
+  const handleToggle = () => setIsOpen(!isOpen);
+
   return (
     <StyledHeader>
       <div className="container">
@@ -57,24 +60,28 @@ const Header = ({ isHome }) => {
           </Link>
         </SiteTitle>
         {isHome ? (
-          <ListChosenWrapper>
+          <ListChosenWrapper className={isOpen && "active"}>
             {headerLists.map((list, index) => (
-              <div key={index}>
+              <span key={index}>
+                <input
+                  type="radio"
+                  id={list.id}
+                  name="chosenList"
+                  value={list.id}
+                  onChange={list.func}
+                  defaultChecked={list.defaultValue}
+                  className="hideBox"
+                />
                 <label htmlFor={list.id}>
-                  <input
-                    type="radio"
-                    id={list.id}
-                    name="chosenList"
-                    value={list.id}
-                    onChange={list.func}
-                    defaultChecked={list.defaultValue}
-                  />
-                  {list.name}
+                  <div className="displayBox">{list.name}</div>
                 </label>
-              </div>
+              </span>
             ))}
           </ListChosenWrapper>
         ) : null}
+      </div>
+      <div className="toggleIconWrapper" onClick={handleToggle}>
+        <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
       </div>
     </StyledHeader>
   );
