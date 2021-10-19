@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../device";
 
 export const BookTileStyled = styled.div`
   width: 500px;
@@ -13,6 +14,14 @@ export const BookTileStyled = styled.div`
 
   &:hover {
     box-shadow: 1px 1px 4px #a9abaf;
+  }
+
+  @media ${device.laptop} {
+    width: 45%;
+  }
+
+  @media ${device.tablet} {
+    width: 90%;
   }
 `;
 

@@ -13,7 +13,7 @@ const App = () => {
   return (
     <>
       <Header isHome={isHome} />
-      {/* <main className="container">
+      <main className="container">
         <Switch>
           <Route path="/" exact>
             <SortBar
@@ -26,7 +26,7 @@ const App = () => {
             <BookExtension setIsHome={setIsHome} />
           </Route>
         </Switch>
-      </main> */}
+      </main>
     </>
   );
 };

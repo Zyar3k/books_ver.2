@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../device";
 
 export const StyledSortBar = styled.div`
   position: sticky;
@@ -6,6 +7,10 @@ export const StyledSortBar = styled.div`
   background: transparent;
   color: #d3d6db;
   z-index: 10;
+
+  @media ${device.tablet} {
+    top: 80px;
+  }
 `;
 
 export const SortWrapper = styled.div`
@@ -15,7 +20,13 @@ export const SortWrapper = styled.div`
   justify-content: space-around;
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
+
+  @media ${device.tablet} {
+    align-items: center;
+    flex-direction: column;
+  }
 `;
+
 export const SortItem = styled.div`
   width: 200px;
   display: flex;
@@ -37,6 +48,29 @@ export const SortItem = styled.div`
     font-size: 18px;
     cursor: pointer;
   }
+
+  @media ${device.laptop} {
+    h4 {
+      font-size: 12px;
+    }
+
+    button {
+      font-size: 12px;
+    }
+  }
+
+  @media ${device.tablet} {
+    border-left: none;
+    margin: 10px 0;
+
+    h4 {
+      font-size: 16px;
+    }
+
+    button {
+      font-size: 16px;
+    }
+  }
 `;
 
 export const ToggleButton = styled.button`
@@ -48,9 +82,9 @@ export const ToggleButton = styled.button`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
+
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
   background: #be3144;
   color: #d3d6db;
-  box-shadow: 0px 4px 10px #a9abaf;
 `;

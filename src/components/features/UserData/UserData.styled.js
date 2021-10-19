@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { device } from "../../../device";
 
 export const UserDataStyled = styled.div`
   margin-top: 30px;
@@ -33,5 +34,9 @@ export const UserDataStyled = styled.div`
         box-shadow: 1px 1px 4px #a9abaf;
       }
     }
+  }
+
+  @media ${device.mobileL} {
+    margin-top: 10px;
   }
 `;

@@ -10,7 +10,7 @@ export const ScrollToTopStyled = styled.div`
   border-radius: 50%;
   background: #be3144;
   color: #d3d6db;
-  z-index: 1;
+  z-index: 100;
   box-shadow: 0 0 8px $fontLighterColor;
   cursor: pointer;
 

@@ -9,8 +9,8 @@ export const StyledHeader = styled.header`
   text-transform: uppercase;
   position: sticky;
   top: 0;
-  z-index: 10;
   box-shadow: 1px 1px 10px #a9abaf;
+  z-index: 10;
 
   .toggleIconWrapper {
     display: none;
@@ -123,19 +123,21 @@ export const ListChosenWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: calc(100vh - 50px);
+    /* height: calc(100vh - 50px); */
+    height: 400px;
+
     background-color: #be3144;
 
     width: 70%;
     left: -90%;
     opacity: 1;
     transition: all 0.5s ease;
+    border-bottom-right-radius: 50px;
 
     &.active {
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
-      z-index: 10000;
     }
   }
 `;
