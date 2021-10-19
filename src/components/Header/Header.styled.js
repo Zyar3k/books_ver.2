@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { device } from "../../device";
 
 export const StyledHeader = styled.header`
-  background-color: #be3144;
-  color: #d3d6db;
+  background-color: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.secondaryColor};
   height: 100px;
   text-transform: uppercase;
   position: sticky;
   top: 0;
-  box-shadow: 1px 1px 10px #a9abaf;
+  box-shadow: 1px 1px 10px ${(props) => props.theme.shadowColor};
   z-index: 10;
 
   .toggleIconWrapper {
@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
       display: flex;
       justify-content: center;
       align-items: center;
-      color: #d3d6db;
+      color: ${(props) => props.theme.secondaryColor};
       position: absolute;
       top: 5px;
       right: 5px;
@@ -59,7 +59,7 @@ export const SiteTitle = styled.div`
       font-family: "Diplomata SC", cursive;
       padding: 10px;
       letter-spacing: 2px;
-      color: #d3d6db;
+      color: ${(props) => props.theme.secondaryColor};
     }
   }
 
@@ -115,7 +115,7 @@ export const ListChosenWrapper = styled.div`
   }
 
   input[type="radio"]:checked + label {
-    color: #303841;
+    color: ${(props) => props.theme.textColor};
     text-shadow: 0 0 12px #fff, 0 0 24px #fff;
   }
 
@@ -123,16 +123,13 @@ export const ListChosenWrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* height: calc(100vh - 50px); */
-    height: 400px;
-
-    background-color: #be3144;
-
-    width: 70%;
+    height: calc(100vh - 50px);
+    position: absolute;
+    background-color: ${(props) => props.theme.mainColor};
+    width: 80%;
     left: -90%;
     opacity: 1;
     transition: all 0.5s ease;
-    border-bottom-right-radius: 50px;
 
     &.active {
       left: 0;

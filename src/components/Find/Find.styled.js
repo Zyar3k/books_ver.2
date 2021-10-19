@@ -17,7 +17,6 @@ export const InputStyled = styled.input`
   }
 
   @media ${device.mobileL} {
-    /* position: unset; */
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);

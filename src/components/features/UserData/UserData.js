@@ -25,14 +25,12 @@ const UserData = ({ book }) => {
           )}
         </div>
         <div>
-          {available ? (
+          {available && (
             <img
               data-tip="Pozycja przeczytana"
               src={readedImg}
               alt="cartoon character with a book"
             />
-          ) : (
-            "False"
           )}
         </div>
       </div>

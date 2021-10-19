@@ -54,12 +54,12 @@ const Header = ({ isHome }) => {
     <StyledHeader>
       <div className="container">
         <SiteTitle>
-          <Find />
+          {isHome && <Find />}
           <Link to="/">
             <h1>Books</h1>
           </Link>
         </SiteTitle>
-        {isHome ? (
+        {isHome && (
           <ListChosenWrapper className={isOpen && "active"}>
             {headerLists.map((list, index) => (
               <span key={index}>
@@ -78,11 +78,13 @@ const Header = ({ isHome }) => {
               </span>
             ))}
           </ListChosenWrapper>
-        ) : null}
+        )}
       </div>
-      <div className="toggleIconWrapper" onClick={handleToggle}>
-        <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
-      </div>
+      {isHome && (
+        <div className="toggleIconWrapper" onClick={handleToggle}>
+          <i className={isOpen ? "fas fa-times" : "fas fa-bars"}></i>
+        </div>
+      )}
     </StyledHeader>
   );
 };

@@ -5,16 +5,19 @@ export const StyledSortBar = styled.div`
   position: sticky;
   top: 100px;
   background: transparent;
-  color: #d3d6db;
+  color: ${(props) => props.theme.secondaryColor};
   z-index: 10;
 
   @media ${device.tablet} {
+    top: 50px;
+  }
+  @media ${device.mobileL} {
     top: 80px;
   }
 `;
 
 export const SortWrapper = styled.div`
-  background: #be3144;
+  background: ${(props) => props.theme.mainColor};
   display: flex;
   padding: 10px 0;
   justify-content: space-around;
@@ -31,7 +34,7 @@ export const SortItem = styled.div`
   width: 200px;
   display: flex;
   justify-content: space-around;
-  border-left: 1px solid #d3d6db;
+  border-left: 1px solid ${(props) => props.theme.secondaryColor};
 
   &:first-of-type {
     border-left: none;
@@ -44,7 +47,7 @@ export const SortItem = styled.div`
   button {
     border: none;
     background: none;
-    color: #d3d6db;
+    color: ${(props) => props.theme.secondaryColor};
     font-size: 18px;
     cursor: pointer;
   }
@@ -82,9 +85,8 @@ export const ToggleButton = styled.button`
   justify-content: center;
   align-items: center;
   margin: 0 auto;
-
   border-bottom-right-radius: 30px;
   border-bottom-left-radius: 30px;
-  background: #be3144;
-  color: #d3d6db;
+  background: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.secondaryColor};
 `;

@@ -23,15 +23,16 @@ export const UserDataStyled = styled.div`
   .buttonWrapper {
     button {
       padding: 10px 20px;
-      background: #be3144;
+      background: ${(props) => props.theme.mainColor};
       border: none;
       border-radius: 12px;
       color: white;
       cursor: pointer;
-      box-shadow: 1px 1px 10px #a9abaf, 1px 1px 10px #a9abaf;
+      box-shadow: 1px 1px 10px ${(props) => props.theme.shadowColor},
+        1px 1px 10px ${(props) => props.theme.shadowColor};
 
       &:hover {
-        box-shadow: 1px 1px 4px #a9abaf;
+        box-shadow: 1px 1px 4px ${(props) => props.theme.shadowColor};
       }
     }
   }

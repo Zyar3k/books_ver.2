@@ -5,15 +5,15 @@ export const BookTileStyled = styled.div`
   width: 500px;
   margin: 10px;
   border-radius: 12px;
-  box-shadow: 1px 1px 10px #a9abaf;
+  box-shadow: 1px 1px 10px ${(props) => props.theme.shadowColor};
 
   a {
     text-decoration: none;
-    color: #303841;
+    color: ${(props) => props.theme.textColor};
   }
 
   &:hover {
-    box-shadow: 1px 1px 4px #a9abaf;
+    box-shadow: 1px 1px 4px ${(props) => props.theme.shadowColor};
   }
 
   @media ${device.laptop} {

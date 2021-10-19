@@ -8,8 +8,8 @@ export const ScrollToTopStyled = styled.div`
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #be3144;
-  color: #d3d6db;
+  background: ${(props) => props.theme.mainColor};
+  color: ${(props) => props.theme.secondaryColor};
   z-index: 100;
   box-shadow: 0 0 8px $fontLighterColor;
   cursor: pointer;

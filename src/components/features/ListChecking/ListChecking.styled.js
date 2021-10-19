@@ -6,7 +6,7 @@ export const ListCheckingStyled = styled.div`
 
   h3 {
     margin-bottom: 10px;
-    color: #be3144;
+    color: ${(props) => props.theme.mainColor};
   }
 
   span {

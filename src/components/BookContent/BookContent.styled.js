@@ -8,7 +8,7 @@ export const BookContentStyled = styled.div`
   flex-direction: column;
   align-items: center;
   border-radius: 12px;
-  box-shadow: 1px 1px 10px #a9abaf;
+  box-shadow: 1px 1px 10px ${(props) => props.theme.shadowColor};
 
   .infoText {
     text-align: center;
@@ -26,7 +26,7 @@ export const BookContentStyled = styled.div`
     &.isTop {
       border: 10px solid goldenrod;
       border-radius: 30px;
-      background: #ffcdab;
+      background: ${(props) => props.theme.isTopColor};
       padding: 20px 40px;
     }
   }
@@ -45,6 +45,7 @@ export const BookContentStyled = styled.div`
   @media ${device.laptop} {
     min-height: 88vh;
   }
+
   @media ${device.tablet} {
     min-height: 80vh;
     margin: 10px 10px;
