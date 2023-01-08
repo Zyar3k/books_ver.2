@@ -1,13 +1,15 @@
 import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
-import { useParams, useHistory } from "react-router";
+import { useParams } from "react-router";
 import BookContent from "../BookContent/BookContent";
+
+import { useLocation } from "react-router-dom";
 
 const BookExtension = ({ setIsHome }) => {
   const { books } = useContext(GlobalContext);
   const params = useParams();
-  const history = useHistory();
-  const path = history.location.pathname;
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
     if (path !== "/") {

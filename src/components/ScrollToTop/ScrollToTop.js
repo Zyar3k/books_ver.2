@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useWindowScroll } from "react-use";
-import ReactTooltip from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { ScrollToTopStyled } from "./ScrollToTop.styled";
 
 const ScrollToTop = () => {

@@ -1,5 +1,5 @@
-import { useHistory } from "react-router-dom";
-import ReactTooltip from "react-tooltip";
+import { useNavigate } from "react-router-dom";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 import { UserDataStyled } from "./UserData.styled";
 
 import kindle from "../../../images/wood_hand_kindle_en.png";
@@ -8,9 +8,9 @@ import readedImg from "../../../images/read-svg-png.png";
 const UserData = ({ book }) => {
   const { readed, available } = book;
 
-  const history = useHistory();
+  const navigate = useNavigate();
   const backToList = () => {
-    history.push("/");
+    navigate("/");
   };
   return (
     <UserDataStyled>

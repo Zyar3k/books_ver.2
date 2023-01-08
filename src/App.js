@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Switch, Route } from "react-router";
+import { Routes, Route } from "react-router";
 
 import BookList from "./components/BookList/BookList";
 import BookExtension from "./components/BookExtension/BookExtension";
@@ -23,18 +23,26 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Header isHome={isHome} />
       <main className="container">
-        <Switch>
-          <Route path="/" exact>
-            <SortBar
-              setIsPageShowing={setIsPageShowing}
-              isPageShowing={isPageShowing}
-            />
-            <BookList setIsHome={setIsHome} isPageShowing={isPageShowing} />
-          </Route>
-          <Route path="/book/:id" exact>
-            <BookExtension setIsHome={setIsHome} />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route
+            path="/"
+            exact
+            element={
+              <>
+                <SortBar
+                  setIsPageShowing={setIsPageShowing}
+                  isPageShowing={isPageShowing}
+                />
+                <BookList setIsHome={setIsHome} isPageShowing={isPageShowing} />
+              </>
+            }
+          ></Route>
+          <Route
+            path="/book/:id"
+            exact
+            element={<BookExtension setIsHome={setIsHome} />}
+          />
+        </Routes>
       </main>
     </ThemeProvider>
   );

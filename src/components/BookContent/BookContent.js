@@ -3,7 +3,7 @@ import StarRanking from "../features/StarRanking/StarRanking";
 import ListChecking from "../features/ListChecking/ListChecking";
 import UserData from "../features/UserData/UserData";
 import PageSection from "../features/PageSection/PageSection";
-import ReactTooltip from "react-tooltip";
+import { Tooltip as ReactTooltip } from "react-tooltip";
 
 import logoLC from "../../images/lc-logo.png";
 

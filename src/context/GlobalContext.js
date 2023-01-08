@@ -27,7 +27,7 @@ export const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get(`${BASE_URL}books`)
+      .get(`${BASE_URL}`)
       .then((res) => {
         dispatch({ type: FETCH_SUCCESS, payload: res.data });
       })

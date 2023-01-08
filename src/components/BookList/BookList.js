@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState, lazy, Suspense } from "react";
 import { GlobalContext } from "../../context/GlobalContext";
 import ScrollToTop from "../ScrollToTop/ScrollToTop";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { BookListStyled } from "./BookList.styled";
 
@@ -11,11 +11,10 @@ const BookList = ({ isPageShowing, setIsHome }) => {
   const { books, filtered, all, searched } = useContext(GlobalContext);
   const [displayData, setDisplayData] = useState(books);
 
-  const history = useHistory();
-  const path = history.location.pathname;
+  const location = useLocation();
+  const path = location.pathname;
 
   useEffect(() => {
-    console.log(all);
     if (path === "/") {
       setIsHome(true);
     } else {
