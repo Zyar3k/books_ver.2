@@ -3,22 +3,14 @@ import React from "react";
 import { ListCheckingStyled } from "./ListChecking.styled";
 
 const ListChecking = ({ book }) => {
-  const { bbc, emp, gan, ama, pozy } = book;
-
-  const array = [
-    { name: "AMAZON", bool: ama },
-    { name: "BBC", bool: bbc },
-    { name: "EMPIK", bool: emp },
-    { name: "GANDALF", bool: gan },
-    { name: "POZYCJE", bool: pozy },
-  ];
+  const list = book.list;
 
   return (
     <ListCheckingStyled>
       <h3>Na listach:</h3>
-      {array.map((item, index) =>
-        item.bool ? <span key={index}>{item.name}</span> : null
-      )}
+      {list.map((item, index) => (
+        <span key={index}>{item}</span>
+      ))}
     </ListCheckingStyled>
   );
 };
